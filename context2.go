@@ -4,6 +4,8 @@
 
 // Package xcontext is a package to offer the extra functionality we need
 // from contexts that is not available from the standard context package.
+
+// guonaihong 新增WithXXX相关函数
 package context2
 
 import (
