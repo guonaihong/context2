@@ -13,7 +13,7 @@ func main() {
     // 模拟父ctx被取消
     cancel()
 
-    ctx2 := Detach(ctx)
+    ctx2 := context2.Detach(ctx)
     select {
     case <-ctx2.Done():
     // 这里不会执行，父context取消不会影响这里
