@@ -29,28 +29,13 @@ func WithCancelDetach(parent context.Context) (ctx context.Context, cancel conte
 	return context.WithCancel(ctx2)
 }
 
-func WithCancelCauseDetach(parent context.Context) (ctx context.Context, cancel context.CancelCauseFunc) {
-	ctx2 := Detach(parent)
-	return context.WithCancelCause(ctx2)
-}
-
 func WithDeadlineDetach(parent context.Context, d time.Time) (context.Context, context.CancelFunc) {
 	ctx2 := Detach(parent)
 	return context.WithDeadline(ctx2, d)
 
 }
 
-func WithDeadlineCauseDetach(parent context.Context, d time.Time, cause error) (context.Context, context.CancelFunc) {
-	ctx2 := Detach(parent)
-	return context.WithDeadlineCause(ctx2, d, cause)
-}
-
 func WithTimeoutDetach(parent context.Context, timeout time.Duration) (context.Context, context.CancelFunc) {
 	ctx2 := Detach(parent)
 	return context.WithTimeout(ctx2, timeout)
-}
-
-func WithTimeoutCauseDetach(parent context.Context, timeout time.Duration, cause error) (context.Context, context.CancelFunc) {
-	ctx2 := Detach(parent)
-	return context.WithTimeoutCause(ctx2, timeout, cause)
 }
